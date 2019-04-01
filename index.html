@@ -1,0 +1,459 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>ITBIZ - Viral Marketing Agency. We commit, We listen, We deliver</title>
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/fonts.css">
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/aos.css">
+    <link rel="stylesheet" href="css/swiper.min.css">
+    <link rel="stylesheet" href="css/jquery.fancybox.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/jquery.js"></script>
+    <script src="js/aos.js"></script>
+    <script src="js/swiper.min.js"></script>
+    <script src="js/jquery.fancybox.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            var kols = new Swiper('.itbiz-kols', {
+                speed: 1000,
+                slidesPerView: 5,
+                slidesPerColumn: 2,
+                slidesPerGroup: 10,
+                spaceBetween: 10,
+                pagination: {
+                    el: '.itbiz-kols_pagination',
+                    clickable: true,
+                },
+                breakpoints: {
+                    768: {
+                        slidesPerView: 3,
+                        slidesPerGroup: 3
+                    }
+                }
+            });
+
+            var project = new Swiper('.itbiz-project_list', {
+                peed: 1000,
+                effect: 'fade',
+                pagination: {
+                    el: '.itbiz-project_pagination',
+                    clickable: true,
+                },
+            });
+
+            var customer = new Swiper('.itbiz-customer_list', {
+                peed: 1000,
+                slidesPerView: 7,
+                loop: true,
+                navigation: {
+                    nextEl: '.itbiz-customer_next',
+                    prevEl: '.itbiz-customer_prev',
+                },
+                breakpoints: {
+                    1024: {
+                        slidesPerView: 5
+                    },
+                    768: {
+                        slidesPerView: 4
+                    },
+                    550: {
+                        slidesPerView: 2
+                    }
+                }
+            })
+
+            var url = 'https://docs.google.com/forms/d/e/1FAIpQLSfZWkXEAjMjYmPqXHY1k3MNcWEaXtgMfNN-jpwSgXFv_qTOrA/formResponse';
+            url = btoa(url);
+            $('#submit').click(function(e) {
+                e.preventDefault();
+                var name = $(this).parent().find('#name').val(),
+                    phone = $(this).parent().find('#phone').val(),
+                    problem = $(this).parent().find('#email').val();
+                $.ajax({
+                    url: atob(url),
+                    type: 'POST',
+                    dataType: "xml",
+                    data: {
+                        'entry.75586507': name,
+                        'entry.1560337888': phone,
+                        'entry.245760971': problem
+                    }
+                });
+                setTimeout(function() {
+                    alert('Gửi thông tin thành công');
+                }, 1000)
+            });
+        })
+
+        function myFunction(x) {
+            x.classList.toggle("change");
+            $(".itbiz-navigation").toggle();
+        }
+    </script>
+</head>
+<body>
+    <div class="itbiz">
+        <header class="itbiz-header">
+            <div class="itbiz-header_wrapper">
+                <div class="itbiz-logo">
+                    <a href="/">
+                        <img src="images/logo.png" alt="">
+                    </a>
+                </div>
+
+                <nav class="itbiz-navigation">
+                    <ul>
+                        <li class="active"><a href="#">Trang chủ</a></li>
+                        <li><a href="#">Lý do nên chọn ITBIZ</a></li>
+                        <li><a href="#">Thương hiệu</a></li>
+                        <li><a href="#">Người ảnh hưởng</a></li>
+                        <li><a href="#">Ưu đãi</a></li>
+                    </ul>
+                </nav>
+
+                <div class="menu-toggle" onclick="myFunction(this)">
+                    <div class="bar1"></div>
+                    <div class="bar2"></div>
+                    <div class="bar3"></div>
+                </div>
+            </div>
+        </header>
+
+        <section class="itbiz-banner">
+            <div class="itbiz-banner_wrapper swiper-container">
+                <div class="swiper-wrapper">
+                    <div class="itbiz-banner_item swiper-slide">
+                        <img src="images/banner-1.jpg" alt="">
+
+                        <div class="itbiz-banner_content">
+                            <h2>Tối ưu hóa chiến lược <span>Influencer Marketing</span> bằng sáng tạo nội dung</h2>
+
+                            <p>ITBIZ sẽ giúp bạn trả lời câu hỏi đó bằng cách xây dựng những nội dung sáng tạo, độc đáo, <br /> phù hợp với cá tính của từng người ảnh hưởng, từ đó mang lại hiệu quả cho chiến dịch marketing của doanh nghiệp.</p>
+
+                            <div class="itbiz-banner_button">
+                                <a href="#" class="brandBtn">Thương hiệu</a>
+                                <a href="#" class="influencerBtn">Người ảnh hưởng</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="itbiz-about w1170">
+            <p class="description-small">Sáng tạo & Hiệu quả</p>
+            <h3 class="title-small">ITBIZ có gì</h3>
+            <p class="txtS txtC">Chúng tôi cam kết sẽ giúp hàng triệu người biết đến thương hiệu của bạn chỉ sau một đêm!</p>
+
+            <div class="itbiz-about_list">
+                <div class="itbiz-about_item">
+                    <div class="itbiz-about_image">
+                        <img src="images/about-1.png" alt="">
+                    </div>
+
+                    <h4>Kết nối với 3000 KOLs++</h4>
+
+                    <ul>
+                        <li class="txtS">Hơn 3000 KOLs thuộc mọi lĩnh vực</li>
+                        <li class="txtS">Chi phí hợp lý, ổn định</li>
+                        <li class="txtS">Cam kết hỗ trợ dự án đến khi nghiệm thu</li>
+                    </ul>
+                </div>
+
+                <div class="itbiz-about_item">
+                    <div class="itbiz-about_image">
+                        <img src="images/about-2.png" alt="">
+                    </div>
+
+                    <h4>Đi đầu về Sáng tạo & Nội dung</h4>
+
+                    <ul>
+                        <li class="txtS">Tư vấn chiến lược nội dung phù hợp</li>
+                        <li class="txtS">Hỗ trợ KOL sáng tạo nội dung tự nhiên</li>
+                        <li class="txtS">KOL tương tác liên tục với người quan tâm</li>
+                    </ul>
+                </div>
+
+                <div class="itbiz-about_item">
+                    <div class="itbiz-about_image">
+                        <img src="images/about-3.png" alt="">
+                    </div>
+
+                    <h4>Dịch vụ chuyên nghiệp</h4>
+
+                    <ul>
+                        <li class="txtS">Hợp đồng cam kết rõ ràng</li>
+                        <li class="txtS">Hỗ trợ nhanh chóng 24/7</li>
+                        <li class="txtS">Đội ngũ sáng tạo trẻ trung, năng động, bắt trend</li>
+                    </ul>
+                </div>
+            </div>
+
+            <a data-fancybox data-src="#hidden-content" href="javascript:;" class="contact">Liên hệ tư vấn</a>
+        </section>
+
+        <section class="itbiz-kols swiper-container">
+            <div class="swiper-wrapper">
+                <div class="itbiz-kols_item swiper-slide"><img src="images/kol-1.jpg" alt=""></div>
+                <div class="itbiz-kols_item swiper-slide"><img src="images/kol-2.jpg" alt=""></div>
+                <div class="itbiz-kols_item swiper-slide"><img src="images/kol-3.jpg" alt=""></div>
+                <div class="itbiz-kols_item swiper-slide"><img src="images/kol-4.jpg" alt=""></div>
+                <div class="itbiz-kols_item swiper-slide"><img src="images/kol-5.jpg" alt=""></div>
+                <div class="itbiz-kols_item swiper-slide"><img src="images/kol-6.jpg" alt=""></div>
+                <div class="itbiz-kols_item swiper-slide"><img src="images/kol-7.jpg" alt=""></div>
+                <div class="itbiz-kols_item swiper-slide"><img src="images/kol-8.jpg" alt=""></div>
+                <div class="itbiz-kols_item swiper-slide"><img src="images/kol-9.jpg" alt=""></div>
+                <div class="itbiz-kols_item swiper-slide"><img src="images/kol-10.jpg" alt=""></div>
+                <div class="itbiz-kols_item swiper-slide"><img src="images/kol-1.jpg" alt=""></div>
+                <div class="itbiz-kols_item swiper-slide"><img src="images/kol-2.jpg" alt=""></div>
+                <div class="itbiz-kols_item swiper-slide"><img src="images/kol-3.jpg" alt=""></div>
+                <div class="itbiz-kols_item swiper-slide"><img src="images/kol-4.jpg" alt=""></div>
+                <div class="itbiz-kols_item swiper-slide"><img src="images/kol-5.jpg" alt=""></div>
+                <div class="itbiz-kols_item swiper-slide"><img src="images/kol-6.jpg" alt=""></div>
+                <div class="itbiz-kols_item swiper-slide"><img src="images/kol-7.jpg" alt=""></div>
+                <div class="itbiz-kols_item swiper-slide"><img src="images/kol-8.jpg" alt=""></div>
+                <div class="itbiz-kols_item swiper-slide"><img src="images/kol-9.jpg" alt=""></div>
+                <div class="itbiz-kols_item swiper-slide"><img src="images/kol-10.jpg" alt=""></div>
+            </div>
+
+            <div class="itbiz-kols_pagination swiper-pagination"></div>
+        </section>
+
+        <section class="itbiz-featured">
+            <div class="itbiz-featured_wrapper w1170">
+                <div class="itbiz-featured_row">
+                    <div class="itbiz-featured_column">
+                        <div class="itbiz-featured_heading">
+                            <img src="images/featured-1.png" alt="">
+
+                            <h3>Cộng đồng <span>dẫn đầu</span> <br /> mạng xã hội</h3>
+                        </div>
+
+                        <p class="itbiz-featured_desc">Mạng lưới KOLs dẫn đầu MXH, bao phủ mọi lĩnh vực <br /> như làm đẹp, thẩm mỹ, giáo dục, giải trí...</p>
+                    </div>
+
+                    <div class="itbiz-featured_column itbiz-featured_list">
+                        <div class="itbiz-featured_item">
+                            <div class="itbiz-featured_count" data-stt="1">+1500</div>
+
+                            <div class="itbiz-featured_info">Tin tức giải trí</div>
+                        </div>
+
+                        <div class="itbiz-featured_item">
+                            <div class="itbiz-featured_count" data-stt="2">+3000</div>
+
+                            <div class="itbiz-featured_info">Người ảnh hưởng</div>
+                        </div>
+
+                        <div class="itbiz-featured_item" style="opacity: 0">
+                            <div class="itbiz-featured_count">+1500</div>
+
+                            <div class="itbiz-featured_info">Tin tức giải trí</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="itbiz-featured_row">
+                    <div class="itbiz-featured_column">
+                        <div class="itbiz-featured_heading">
+                            <img src="images/featured-2.png" alt="">
+
+                            <h3><span>+300</span> nội dung sáng tạo <br /> được tạo ra mỗi ngày</h3>
+                        </div>
+
+                        <p class="itbiz-featured_desc">Mạng lưới KOLs dẫn đầu MXH, bao phủ mọi lĩnh vực <br /> như làm đẹp, thẩm mỹ, giáo dục, giải trí...</p>
+                    </div>
+
+                    <div class="itbiz-featured_column itbiz-featured_list">
+                        <div class="itbiz-featured_item">
+                            <div class="itbiz-featured_count" data-stt="3">+70M</div>
+
+                            <div class="itbiz-featured_info">Lượt hâm mộ</div>
+                        </div>
+
+                        <div class="itbiz-featured_item">
+                            <div class="itbiz-featured_count" data-stt="4">+15M</div>
+
+                            <div class="itbiz-featured_info">Tiếp cận</div>
+                        </div>
+
+                        <div class="itbiz-featured_item">
+                            <div class="itbiz-featured_count" data-stt="5">+1M</div>
+
+                            <div class="itbiz-featured_info">Tương tác</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="itbiz-discount">
+            <div class="itbiz-discount_wrapper">
+                <h3 class="title txtW">Chương trình ưu đãi</h3>
+
+                <div class="itbiz-discount_list">
+                    <div class="itbiz-discount_item">
+                        <p class="itbiz-discount_text">Ưu đãi lên tới</p>
+
+                        <p class="itbiz-discount_price">10.000.000vnd</p>
+
+                        <p class="itbiz-discount_text">Dành cho khách hàng có đơn <br /> hàng trên <span>30.000.000vnd</span></p>
+                    </div>
+
+                    <div class="itbiz-discount_item">
+                        <p class="itbiz-discount_text">Ưu đãi lên tới</p>
+
+                        <p class="itbiz-discount_price">30.000.000vnd</p>
+
+                        <p class="itbiz-discount_text">Dành cho khách hàng có đơn <br /> hàng trên <span>30 đến 100tr</span></p>
+                    </div>
+
+                    <div class="itbiz-discount_item">
+                        <p class="itbiz-discount_text">Ưu đãi lên tới</p>
+
+                        <p class="itbiz-discount_price">50.000.000vnd</p>
+
+                        <p class="itbiz-discount_text">Dành cho khách hàng có đơn <br /> hàng trên <span>100.000.000vnd</span></p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="itbiz-project">
+            <div class="itbiz-project_wrapper w1170">
+                <p class="description">Chúng tôi đã làm?</p>
+                <h3 class="title">Các dự án <br /> đã triển khai của ITBIZ</h3>
+
+                <div class="itbiz-project_list swiper-container">
+                    <div class="swiper-wrapper">
+                        <div class="itbiz-project_item swiper-slide" style="background-image: url('images/project-1.jpg')">
+                            <div class="itbiz-project_main">
+                                <p class="itbiz-project_client">Khách hàng: Vin City</p>
+
+                                <p class="itbiz-project_text">- Thương hiệu Vincity được phủ sóng lên toàn bộ facebook</p>
+                                <p class="itbiz-project_text">- Số lượng khách hàng biết và tiếp cận đến với Vincity là hơn 10 triệu lượt view trong 1 tuần đầu tiên</p>
+                                <p class="itbiz-project_text">- Giải quyết các mục tiêu theo hướng:</p>
+                                <p class="itbiz-project_text">Tìm hiểu > Kích thích > Tương tác > Mua hàng</p>
+
+                                <a data-fancybox data-src="#hidden-content" href="javascript:;" class="contact">Khám phá</a>
+                            </div>
+                        </div>
+
+                        <div class="itbiz-project_item swiper-slide" style="background-image: url('images/project-2.jpg')">
+                            <div class="itbiz-project_main">
+                                <p class="itbiz-project_client">Khách hàng: Cenota</p>
+
+                                <p class="itbiz-project_text">- Thương hiệu Vincity được phủ sóng lên toàn bộ facebook</p>
+                                <p class="itbiz-project_text">- Số lượng khách hàng biết và tiếp cận đến với Vincity là hơn 10 triệu lượt view trong 1 tuần đầu tiên</p>
+                                <p class="itbiz-project_text">- Giải quyết các mục tiêu theo hướng:</p>
+                                <p class="itbiz-project_text">Tìm hiểu > Kích thích > Tương tác > Mua hàng</p>
+
+                                <a data-fancybox data-src="#hidden-content" href="javascript:;" class="contact">Khám phá</a>
+                            </div>
+                        </div>
+
+                        <div class="itbiz-project_item swiper-slide" style="background-image: url('images/project-3.jpg')">
+                            <div class="itbiz-project_main">
+                                <p class="itbiz-project_client">Khách hàng: Vin City</p>
+
+                                <p class="itbiz-project_text">- Thương hiệu Vincity được phủ sóng lên toàn bộ facebook</p>
+                                <p class="itbiz-project_text">- Số lượng khách hàng biết và tiếp cận đến với Vincity là hơn 10 triệu lượt view trong 1 tuần đầu tiên</p>
+                                <p class="itbiz-project_text">- Giải quyết các mục tiêu theo hướng:</p>
+                                <p class="itbiz-project_text">Tìm hiểu > Kích thích > Tương tác > Mua hàng</p>
+
+                                <a data-fancybox data-src="#hidden-content" href="javascript:;" class="contact">Khám phá</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="itbiz-project_pagination swiper-pagination"></div>
+                </div>
+            </div>
+        </section>
+
+        <section class="itbiz-customer">
+            <div class="itbiz-customer_wrapper w1170">
+                <h3 class="title">Trở thành thương hiệu hàng đầu <span>với</span> ITBIZ</h3>
+
+                <div class="itbiz-customer_list swiper-container">
+                    <div class="swiper-wrapper">
+                        <div class="itbiz-customer_item swiper-slide">
+                            <img src="images/customer-7.png" alt="">
+                        </div>
+                        <div class="itbiz-customer_item swiper-slide">
+                            <img src="images/customer-6.jpg" alt="">
+                        </div>
+                        <div class="itbiz-customer_item swiper-slide">
+                            <img src="images/customer-5.jpg" alt="">
+                        </div>
+                        <div class="itbiz-customer_item swiper-slide">
+                            <img src="images/customer-4.jpg" alt="">
+                        </div>
+                        <div class="itbiz-customer_item swiper-slide">
+                            <img src="images/customer-3.jpg" alt="">
+                        </div>
+                        <div class="itbiz-customer_item swiper-slide">
+                            <img src="images/customer-2.jpg" alt="">
+                        </div>
+                        <div class="itbiz-customer_item swiper-slide">
+                            <img src="images/customer-1.jpg" alt="">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="itbiz-customer_prev swiper-button-prev"></div>
+                <div class="itbiz-customer_next swiper-button-next"></div>
+            </div>
+        </section>
+
+        <footer class="itbiz-footer">
+            <div class="itbiz-footer_top">
+                <div class="itbiz-footer_logo">
+                    <img src="images/logo.png" alt="">
+                </div>
+
+                <div class="itbiz-footer_contact">
+                    <div>
+                        <i class="fa fa-mobile" aria-hidden="true"></i>
+                        <p>093.628.9999 </p>
+                    </div>
+                    <div>
+                        <i class="fa fa-envelope" aria-hidden="true"></i>
+                        <p>www.itbiz.asia </p>
+                    </div>
+                    <div>
+                        <i class="fa fa-map-marker" aria-hidden="true"></i>
+                        <p>Tầng 3 tòa nhà Golden Palace, Lê Văn Lương, việt nam <br /> 470 North Bridge road, #05-12, Bugis Cube, Singapore (188735)</p>
+                    </div>
+                </div>
+
+                <a href="mailto:support@itbiz.asia">Gửi mail cho chúng tôi <i class="fa fa-envelope-o" aria-hidden="true"></i></a>
+            </div>
+
+            <div class="itbiz-footer_bottom">
+                <p>© 2018 ITBIZ Designed by JustinArt for Mass Impressions.</p>
+
+                <div class="itbiz-footer_social">
+                    <a href="#"><i class="fa fa-facebook-official" aria-hidden="true"></i></a>
+                    <a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a>
+                    <a href="#"><i class="fa fa-youtube-play" aria-hidden="true"></i></a>
+                    <a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+                </div>
+            </div>
+        </footer>
+
+        <div style="display: none;" id="hidden-content">
+            <h2>Đăng ký tư vấn</h2>
+            <input type="text" id="name" placeholder="Tên khách hàng">
+            <input type="tel" id="phone" placeholder="Số điện thoại">
+            <input type="email" id="email" placeholder="Email">
+            <a href="#" id="submit">Gửi ngay</a>
+        </div>
+    </div>
+</body>
+</html>
